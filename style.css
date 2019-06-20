@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #ff3d00  ;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #ffca28;
+  height: 100%;
+  min-height: 100vh;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+#resolution-paper::-webkit-scrollbar {
+  width: 10px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#resolution-paper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-top: 1px solid #ffca28;
+  border-right: 1px solid #ffca28;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#resolution-paper::-webkit-scrollbar-thumb {
+  background: #ffa726  ; 
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
+
+
+html {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* -----------------------------NAVBAR--------------------------------------------- */
+
+.nav-content {
+  /* color: white; */
+  font-size: 24px;
+  padding: 5px 20px;
+}
+
+.nav-content:hover {
+  /* background-color: #89bdd1; */
+  cursor: pointer;
+}
+
+.logout-nav:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* color: white; */
+  background-color: rgba(255, 0, 0, 0.24);
+  transition-duration: 0.3s;
+}
+
+.login-nav:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: rgba(0, 128, 0, 0.411);
+  transition-duration: 0.3s;
+}
+
+.logout-nav {
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.login-nav {
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.logo-nav {
+  transition-duration: 0.3s;
+  background-color: #ffca28;
+  display: flex;
+  align-items: center;
+}
+
+.logo-nav:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition-duration: 0.3s;
+  background-color:  rgba(255, 0, 0, 0.24);
+}
+
+.logonya {
+  /* margin-right: 10px; */
+  margin-left: 10px;
+}
+
+.logo {
+  color: white;
+  
+}
+
+#navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* position: fixed; */
+  /* height: 40px; */
+  background-color: #ffca28;
+  z-index: 100000;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.primary-container {
+  margin: 10px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #fff9c4;
+  border-radius: 10px;
+  border: 5px solid #ffca28;
+  padding: 10px;
+}
+
+
+/* ----------------------------------------------------- LOGIN / REGISTER  ------------------------------------------*/
+#login {
+  /* padding: ; */
+  width: 400px;
+}
+
+#register {
+  /* padding: ; */
+  width: 600px;
+}
+
+#login-page {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.form-login {
+  padding: 40px;
+}
+
+#successAlert {
+  width: 70%;
+  padding: 20px;
+  font-size: 24px;
+}
+
+#resolution-paper {
+  color: black;
+  background-color: #F2EECB;
+  text-align: center;
+  width: 70%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px;
+}
+
+#main-content { 
+  margin: 10px auto;
+  width: 70%; 
+  height: 85%;
+}
+
+.resolution {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.486);
+  padding-bottom: 10px;
+  margin: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.resolution-text {
+  font-size: 18px;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.74);
+}
+
+.resolution-image {
+  text-align: left;
+  /* width: 50%; */
+  /* height: 50%; */
+  margin-top: 15px;
+  margin-left: 20px;
+  object-fit: contain;
+}
+
+.image {
+  max-height: 300px;
+  max-width: 300px;
+}
+
+#resolution-topbar {
+  font-size: 20px;
+  display: flex;
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.623);
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo-add:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.445);
+}
+
+#logo-add {
+  font-size: 30px; 
+  margin-bottom: 10px;
+}
