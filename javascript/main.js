@@ -25,7 +25,8 @@ new Vue({
       lastName: 'Scott',
       email: ''
     },
-    successRegister: false
+    successRegister: false,
+    showModal: false
   },
   methods: {
     registerUser() {
@@ -57,7 +58,7 @@ new Vue({
     addNewReso() {
 
     },
-    
+
     logoutUser() {
       localStorage.clear()
       this.loginStatus = false
@@ -71,3 +72,7 @@ new Vue({
     }
   }
 })
+
+$(document).ready(function(){
+  $('.modal').modal();
+});

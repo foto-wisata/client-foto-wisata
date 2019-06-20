@@ -55,7 +55,10 @@
       <div id="resolution-paper" class="primary-container">
         <div id="resolution-topbar">
           <p>Johnson</p>
-          <i class="far fa-calendar-plus" id="logo-add" @click="createNewReso"></i>
+          <i class="far fa-calendar-plus" id="logo-add" @click="showModal = true"></i>
+          <modal v-if="showModal" @close="showModal = false">
+            
+          </modal>
         </div>
         <!-- yang di loop dibawah ini -->
         <div class="resolution">
@@ -105,6 +108,7 @@
   </div>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./javascript/modal-component.js"></script>
   <script src="./javascript/main.js"></script>
 </body>
 </html>
