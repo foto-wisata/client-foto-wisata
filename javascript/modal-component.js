@@ -1,4 +1,5 @@
 Vue.component('modal', {
+  props: ['populate'],
   template: `
     <transition name="modal">
       <div class="modal-mask">
@@ -6,7 +7,7 @@ Vue.component('modal', {
           <div class="modal-container primary-container">
           <form action="">
             <label for="new-description">Description</label>
-            <input type="text" name="new-description" id="new-description">
+            <input type="text" name="new-description" id="new-description" v-bind:value="description">
             <button type="submit" class="btn amber lighten-1 deep-orange-text">Submit</button>
           </form>
             <div class="modal-footer">

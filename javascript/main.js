@@ -72,7 +72,3 @@ new Vue({
     }
   }
 })
-
-$(document).ready(function(){
-  $('.modal').modal();
-});
