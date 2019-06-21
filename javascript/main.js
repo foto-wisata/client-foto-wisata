@@ -1,8 +1,8 @@
 new Vue({
   el: '#app',
   data: {
-    page: '',
-    loginStatus: true,
+    page: 'login',
+    loginStatus: localStorage.getItem("token") ? true : false,
     error: '',
     login: {
       email: '',
@@ -10,7 +10,8 @@ new Vue({
     },
     register: {
       email: '',
-      password: ''
+      password: '',
+      username : ''
     },
     errorLogin: {
       status: false,
@@ -21,19 +22,20 @@ new Vue({
       msg: ''
     },
     loggedUser: {
-      firstName: 'Michael',
-      lastName: 'Scott',
-      email: ''
+      // firstName: 'Michael',
+      // lastName: 'Scott',
+      // email: ''
+      firstName : localStorage.getItem("payload.email")
     },
     successRegister: false,
     showModal: false
   },
   methods: {
     registerUser() {
-      let input = this.registerUser
+      let input = this.register
       axios({ 
         method: 'POST',
-        url: `http://localhost:3000/api/users/register`,
+        url: `http://localhost:3000/user/signup`,
         data: input
       })
       .then(({data}) => {
@@ -42,14 +44,16 @@ new Vue({
       .catch(next)
     },
     loginUser() {
-      let input = this.loginUser
+      let input = this.login
       axios({ 
         method: 'POST',
-        url: `http://localhost:3000/api/users/register`,
+        url: `http://localhost:3000/user/signin`,
         data: input
       })
       .then(({data}) => {
+        console.log(input, 'ini input')
         localStorage.setItem('token', data.token)
+        localStorage.setItem('payload', data.payload)
         this.page = 'article'
         this.loginStatus = true
       })
