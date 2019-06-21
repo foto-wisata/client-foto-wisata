@@ -68,6 +68,11 @@
           <div class="resolution-option">
             <a href="#" class="btn-small red darken-4" v-on:click="deleteArticle(article._id)">delete</a>
             <a href="#" class="btn-small  amber lighten-1" >edit</a>
+            <!-- facebook -->
+            <div class="fb-share-button" data-href="https://images.unsplash.com/photo-1561072750-bd444241e933?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561072750-bd444241e933%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D934%26q%3D80&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Bagikan</a></div>
+            <!-- Load Facebook SDK for JavaScript -->
+            <div id="fb-root"></div>
+              
           </div>
         </div>
         <div class="resolution">
@@ -110,5 +115,13 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="./javascript/modal-component.js"></script>
   <script src="./javascript/main.js"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.3&appId=201160308227&autoLogAppEvents=1"></script>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
