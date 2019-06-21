@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Resolution Maker</title>
-  <!-- <link rel="stylesheet" type="text/css" href="./asssets/materialize/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="./asssets/materialize/js/materialize.min.js"> -->
+  <link rel="stylesheet" type="text/css" href="./asssets/materialize/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="./asssets/materialize/js/materialize.min.js">
   <link rel="stylesheet" type="text/css" href="./style.css">
   <script src="https://kit.fontawesome.com/bffd864163.js"></script>
 </head>
@@ -55,7 +55,10 @@
       <div id="resolution-paper" class="primary-container">
         <div id="resolution-topbar">
           <p v-show="loggedUser"></p>
-          <i class="far fa-calendar-plus" id="logo-add" @click="showModal = true"></i>
+          <div id="logo-topbar">
+            <i class="far fa-calendar-plus logonya-topbar"  @click="showModal = true"></i>
+            <i class="far fa-share-square logonya-topbar" id="capture"></i>
+          </div>
           <modal v-if="showModal" @close="showModal = false">
             
           </modal>
@@ -106,6 +109,7 @@
       </div>
     </div>
   </div>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="./src/modal-component.js"></script>

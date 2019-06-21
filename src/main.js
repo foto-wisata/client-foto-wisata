@@ -1,16 +1,17 @@
-import App from './App.vue'
-import Vue from "vue"
-import 'materialize-css/dist/css/materialize.css'
+// import App from './App.vue'
+// import Vue from "vue"
+// import 'materialize-css/dist/css/materialize.css'
 
-new Vue(App).$mount('#app')
+// new Vue(App).$mount('#app')
 
 
 
 new Vue({
   el: '#app',
   data: {
-    page: 'login',
-    loginStatus: localStorage.getItem("token") ? true : false,
+    page: '',
+    // loginStatus: localStorage.getItem("token") ? true : false,
+    loginStatus: true,
     error: '',
     login: {
       email: '',
