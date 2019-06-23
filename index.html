@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,101 @@
   <link rel="stylesheet" type="text/css" href="./style.css">
   <script src="https://kit.fontawesome.com/bffd864163.js"></script>
 </head>
+
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <div id="navbar">
+      <div class="nav-content logo-nav" @click="page = 'article'">
+        <i class="far fa-calendar-check logonya"></i>
+        <div class="nav-content">Resolution Maker</div>
+      </div>
+      <div class="nav-content logout-nav" v-if="loginStatus === true" @click="logoutUser">
+        <div class="nav-content">Sign Out</div>
+        <i class="fas fa-sign-out-alt logonya"></i>
+      </div>
+      <div class="nav-content login-nav" v-if="!loginStatus && page != 'login'" @click="page = 'login'">
+        <div class="nav-content">Sign In</div>
+        <i class="fas fa-sign-in-alt logonya"></i>
+      </div>
+    </div>
+    <p style="text-align: center" id="successAlert" v-show="successRegister === true" class="primary-container">Success
+      created an account {{register.email}} !</p>
+    <div id="login-page" v-if="!loginStatus">
+      <div id="login" class="primary-container">
+        <h4 style="text-align: center">Login</h4>
+        <h6 v-show="errorLogin.status === true"> {{ errorLogin.msg }}</h6>
+        <form class="form-login" @submit.prevent="loginUser">
+          <label for="login-email">Email</label>
+          <input type="text" name="login-email" id="login-email" v-model="login.email" required>
+          <label for="login-password">Password</label>
+          <input type="password" name="login-password" id="login-password" v-model="login.password" required>
+          <button v-on:click="loginUser" type="submit" class="btn amber lighten-1" style="margin-top: 10px;">Sign
+            In</button>
+        </form>
+      </div>
+      <div id="register" class="primary-container">
+        <h4 style="text-align: center">Register</h4>
+        <h6 v-show="errorRegister.status === true" v-if="!loginStatus"> {{ errorRegister.msg }}</h6>
+        <form class="form-login" @submit.prevent="registerUser">
+          <label for="register-email">Email</label>
+          <input type="text" name="register-email" id="register-id" v-model="register.email" required>
+          <label for="register-password">Password</label>
+          <input type="password" name="register-password" id="register-password" v-model="register.password" required>
+          <button v-on:click="registerUser" type="submit" class="btn amber lighten-1">Register</button>
+        </form>
+      </div>
+    </div>
+    <div id="main-content" v-else>
+      <div id="resolution-paper" class="primary-container">
+        <div id="resolution-topbar">
+          <p v-show="loggedUser"></p>
+          <!-- facebook, paste abis button(gambar masih dr unsplash) -->
+          <div class="fb-share-button"
+            data-href="https://images.unsplash.com/photo-1561072750-bd444241e933?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=934&amp;q=80"
+            data-layout="button" data-size="large"><a target="_blank"
+              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1561072750-bd444241e933%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D934%26q%3D80&amp;src=sdkpreparse"
+              class="fb-xfbml-parse-ignore">Bagikan</a></div>
+          <!-- Load Facebook SDK for JavaScript -->
+          <div id="fb-root"></div>
+          <div id="logo-topbar">
+            <i class="far fa-calendar-plus logonya-topbar" @click="showModal = true"></i>
+            <i class="far fa-share-square logonya-topbar" id="capture"></i>
+          </div>
+          <modal v-if="showModal" @close="showModal = false">
+
+          </modal>
+        </div>
+        <!-- yang di loop dibawah ini -->
+        <div class="resolution" v-for="(reso, i) in listResolution">
+          <div class="resolution-content">
+            <p class="resolution-text">{{i + 1}}. {{reso.description}}</p>
+            <div class="resolution-image">
+              <img v-bind:src="reso.image" alt="onepiece.png"
+                class="image">
+            </div>
+          </div>
+          <div class="resolution-option">
+            <a href="#" class="btn-small red darken-4" v-on:click="deleteResolution(reso._id)">delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- paste di sript -->
+  <script>(function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-  <!-- <script src="./src/modal-component.js"></script> -->
-  <script src="/src/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./src/modal-component.js"></script>
+  <script src="./src/main.js"></script>
 </body>
+
 </html>

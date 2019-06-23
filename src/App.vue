@@ -1,11 +1,9 @@
 <template>
   <div>
-    <navbar :loginStatus="loginStatus" :page="page" />
-    <!-- <p style="text-align: center" id="successAlert" v-show="successRegister === true" class="primary-container">Success created an account {{register.email}} !</p> -->
-    <login-page></login-page>
-      <!-- <div v-else>
-        <main-content />
-      </div> -->
+    <navbar :loginStatus="loginStatus" :page="page"></navbar>
+     <p style="text-align: center" id="successAlert" v-show="successRegister === true" class="primary-container">Success created an account {{register.email}} !</p> 
+    <login-page v-if="loginStatus === false"></login-page>
+    <main-content v-else></main-content>
   </div>
 </template>
 
